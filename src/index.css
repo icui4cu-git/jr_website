@@ -1,9 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=JetBrains+Mono:wght@400..700&family=Inter:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-primary: #FCFBF8;
+  --color-secondary: #F7F2E9;
+  --color-dark: #1C1917;
+  --color-accent: #B45309;
 }
 
 @layer base {
@@ -11,6 +17,29 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply font-sans bg-slate-50 text-slate-900 antialiased;
+    @apply bg-[--color-primary] text-[--color-dark] antialiased selection:bg-[--color-dark] selection:text-white;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
   }
+
+  section {
+    @apply scroll-mt-24;
+  }
+}
+
+.glass {
+  @apply bg-white/40 backdrop-blur-xl border border-black/5;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(28, 25, 23, 0.15);
+  color: transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
